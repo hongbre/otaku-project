@@ -98,7 +98,14 @@ module.exports.getImgUrlSakura = async (url) => {
   $('.box-article img').each((idx, el) => {
     const src = $(el).attr('src');
     const extension = src.slice(-4);
-    const fileName = `${date}_${idx + 1}${extension}`;
+   
+    let fileName = '';
+    if(extension === 'jpeg') {
+      fileName = `${date}_${idx + 1}.${extension}`;
+    } else {
+      fileName = `${date}_${idx + 1}${extension}`;
+    }
+
     console.log(fileName);
     downloadFile(`https://www.sakurazaka46.com${src}`, 'download', fileName);
   });
