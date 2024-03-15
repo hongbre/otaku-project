@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
+//파일 다운로드하는 함수
 module.exports.downloadFile = async (fileUrl, downloadFolder, fileName) => {
   const localFilePath = path.resolve(__dirname, downloadFolder, fileName);
 
